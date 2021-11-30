@@ -8,14 +8,17 @@ var MAX_LEVEL = 10;
 function liked(){
   numLikes++;
   var levelNum = Math.floor(numLikes / 20) + 1
-  if(levelNum > MAX_LEVEL){
+  var likesToNextLvl = "(" + numLikes % LIKES_TO_LVLUP + "/" + LIKES_TO_LVLUP + ")"
+  if(levelNum >= MAX_LEVEL){
+	likesToNextLvl = "(0/0)"
   	levelNum = MAX_LEVEL
   }
 
   facePic.src = "level" + levelNum + ".png";
+	
   // friendship level Display:
   var p = document.getElementById("p");
-  p.textContent = "> friendship level " + levelNum + "!";
+  p.textContent = "> friendship level " + levelNum + "!" + likesToNextLvl;
 
   //create an animated heart every click by duplicating the existing static heart
   //and applying the animation to it, that way the hearts never run out :)
