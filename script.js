@@ -4,6 +4,7 @@ var facePic = document.getElementById("face")
 
 var numLikes = 0;
 var MAX_LEVEL = 10;
+var LIKES_TO_LVLUP = 20;
 // animation:
 function liked(){
   numLikes++;
