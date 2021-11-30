@@ -5,24 +5,23 @@ var facePic = document.getElementById("face")
 var numLikes = 0;
 var MAX_LEVEL = 10;
 var LIKES_TO_LVLUP = 20;
-// animation:
+
 function liked(){
   numLikes++;
-  var levelNum = Math.floor(numLikes / 20) + 1
+  var levelNum = Math.floor(numLikes / LIKES_TO_LVLUP) + 1
   var likesToNextLvl = "(" + numLikes % LIKES_TO_LVLUP + "/" + LIKES_TO_LVLUP + ")"
   if(levelNum >= MAX_LEVEL){
-	likesToNextLvl = "(0/0)"
-  	levelNum = MAX_LEVEL
+  	  likesToNextLvl = "(0/0)"
+      levelNum = MAX_LEVEL
   }
 
   facePic.src = "level" + levelNum + ".png";
-	
+
   // friendship level Display:
   var p = document.getElementById("p");
-  p.textContent = "> friendship level " + levelNum + "!" + likesToNextLvl;
+  sendMessage("friendship level " + levelNum + "! " + likesToNextLvl);
 
-  //create an animated heart every click by duplicating the existing static heart
-  //and applying the animation to it, that way the hearts never run out :)
+  // heart animation
   var h = heart.cloneNode()
   h.className = ""
   h.style["animation-name"] = "liked"
@@ -30,13 +29,22 @@ function liked(){
 
   h.className = "animate";
   document.getElementById("game").appendChild(h)
+	
+  // delete the heart when the animation is done to prevent clutter
+  h.addEventListener("animationend", function(){
+  	h.remove()
+  }); 
+}
+
+function sendMessage(msg){
+	p.textContent = "> " + msg;
 }
 
 function newComment(event){
 	if (event.keyCode == 13){ //if enter was pressed
 		var p = document.getElementById("p")
 		var commentsBox = document.getElementById("comments")
-		p.textContent = commentsBox.value // set text to textbox text
+		sendMessage(commentsBox.value) // set text to textbox text
 		commentsBox.value = ""; // clear textbox text
       }
 }
