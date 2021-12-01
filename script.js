@@ -11,7 +11,7 @@ function liked(){
   var levelNum = Math.floor(numLikes / LIKES_TO_LVLUP) + 1
   var likesToNextLvl = "(" + numLikes % LIKES_TO_LVLUP + "/" + LIKES_TO_LVLUP + ")"
   if(levelNum >= MAX_LEVEL){
-  	  likesToNextLvl = "(0/0)"
+  	  likesToNextLvl = " "
       levelNum = MAX_LEVEL
   }
 
@@ -20,6 +20,9 @@ function liked(){
   // friendship level Display:
   var p = document.getElementById("p");
   sendMessage("friendship level " + levelNum + "! " + likesToNextLvl);
+  if(levelNum >= MAX_LEVEL){
+          sendMessage("max friendship level reached !");
+  }
 
   // heart animation
   var h = heart.cloneNode()
