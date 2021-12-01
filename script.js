@@ -15,7 +15,7 @@ function liked(){
       levelNum = MAX_LEVEL
   }
 
-  facePic.src = "level" + levelNum + ".png";
+  facePic.src = "assets/level" + levelNum + ".png";
 
   // friendship level Display:
   var p = document.getElementById("p");
