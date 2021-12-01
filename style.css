@@ -28,8 +28,39 @@
   left: 550px;
   background-image: url("assets/pixelHeart.png");
 }
+#heartSpam1{
+  opacity: 0;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 580px;
+  left: 400px;
+  background-image: url("assets/pixelHeart.png");
+}
+#heartSpam2{
+  opacity: 0;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 580px;
+  left: 225px;
+  background-image: url("assets/pixelHeart.png");
+}
+#heartSpam3{
+  opacity: 0;
+  width: 100px;
+  height: 100px;
+  position: absolute;
+  top: 580px;
+  left: 50px;
+  background-image: url("assets/pixelHeart.png");
+}
 .animate{
   animation: liked 1s;
+  animation-timing-function: ease-in-out;
+}
+.spam{
+  animation: liked 1s infinite;
   animation-timing-function: ease-in-out;
 }
 @keyframes liked{
