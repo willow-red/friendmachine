@@ -22,8 +22,7 @@ function liked(){
   facePic.src = "assets/level" + levelNum + ".png";
 
   // friendship level Display:
-  var p = document.getElementById("p");
-  sendMessage("friendship level " + levelNum + "! " + likesToNextLvl);
+  sendMessage("friendship level " + levelNum + "! " + likesToNextLvl,1);
   if(levelNum >= MAX_LEVEL){
     sendMessage("max friendship level reached !");
   }
@@ -63,16 +62,15 @@ function liked(){
   });
 }
 
-function sendMessage(msg){
+function sendMessage(msg, level){ //level 1 is top text, level 2 is bottom text
+	var p = document.getElementById("p" + level)
 	p.textContent = "> " + msg;
 }
 
 function newComment(event){
-  var levelMessage = ""
 	if (event.keyCode == 13){ //if enter was pressed
-		var p = document.getElementById("p")
 		var commentsBox = document.getElementById("comments")
-		sendMessage(commentsBox.value) // set text to textbox text
+		sendMessage(commentsBox.value,2) // set text to textbox text
 		commentsBox.value = ""; // clear textbox text
       }
 }
