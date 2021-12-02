@@ -24,7 +24,7 @@ function liked(){
   // friendship level Display:
   sendMessage("friendship level " + levelNum + "! " + likesToNextLvl,1);
   if(levelNum >= MAX_LEVEL){
-    sendMessage("max friendship level reached !");
+    sendMessage("max friendship level reached !", 1);
   }
 
   // spam hearts
