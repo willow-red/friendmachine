@@ -1,6 +1,7 @@
 var heart = document.getElementById("heart");
 var message = document.getElementById("message");
 var facePic = document.getElementById("face")
+var restartButton = document.getElementById("restart")
 
 var heart1 = document.getElementById("heartSpam1");
 var heart2 = document.getElementById("heartSpam2");
@@ -75,6 +76,11 @@ function newComment(event){
       }
 }
 
+function onRestart(event){
+	location.reload()
+}
 //events!!
+
+restartButton.addEventListener("click",onRestart)
 message.addEventListener("keydown",newComment)
 document.getElementById("btn").addEventListener("click", liked)
