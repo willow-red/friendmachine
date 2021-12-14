@@ -17,9 +17,9 @@
     <img id = "face" src="assets/level1.png">
 	  <img id = "border" src="assets/border.png">
     <div id ="message">
-		<p id="p1"></p>
-		<p id="p2"></p>
-		<input type="text" id="comments" placeholder="message me!"><br><br>
+		  <p id="p1"></p>
+		  <p id="p2"></p>
+		  <input type="text" id="comments" placeholder="message me!"><br><br>
     </div>
 	<div id ="heart">
     </div>
@@ -29,7 +29,9 @@
     </div>
   <div id = "heartSpam3">
     </div>
-	<button id = "btn">♥</button>
+	<input id ="btn" type="image" src="assets/likebutton1.png"
+    onmousedown="this.src='assets/likebutton2.png'"
+    onmouseup="this.src='assets/likebutton1.png'">
   </div>
   <!--<div id = "about" style="line-height:150%">
     <p>
