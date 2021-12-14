@@ -17,10 +17,7 @@ function liked(){
   var likesToNextLvl = "(" + numLikes % LIKES_TO_LVLUP + "/" + LIKES_TO_LVLUP + ")"
   if((numLikes % LIKES_TO_LVLUP) == 0 && levelNum != 1){ //if leveled up
   	// messages per level up:
-  if(levelNum == 1){
-    sendMessage("no one likes me...", 2, "to")
-  }
-  else if(levelNum == 2){
+  if(levelNum == 2){
     sendMessage("oh?", 2, "to")
   }
   else if(levelNum == 3){
@@ -125,6 +122,10 @@ function newComment(event){
 function onRestart(event){
 	location.reload()
 }
+
+//on start stuff
+sendMessage("no one likes me...", 2, "to")
+
 //events!!
 
 restartButton.addEventListener("click",onRestart)
