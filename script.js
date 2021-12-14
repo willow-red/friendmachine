@@ -15,6 +15,44 @@ function liked(){
   numLikes++;
   var levelNum = Math.floor(numLikes / LIKES_TO_LVLUP) + 1
   var likesToNextLvl = "(" + numLikes % LIKES_TO_LVLUP + "/" + LIKES_TO_LVLUP + ")"
+  // messages per level up:
+  if(levelNum == 1){
+    sendMessage("no one likes me...", 2, "to")
+  }
+  else if(levelNum == 2){
+    sendMessage("oh?", 2, "to")
+  }
+  else if(levelNum == 3){
+    sendMessage("hhmmmph...", 2, "to")
+  }
+  else if(levelNum == 3){
+    sendMessage("hhmmmph...", 2, "to")
+  }
+  else if(levelNum == 4){
+    sendMessage("hello...", 2, "to")
+  }
+  else if(levelNum == 5){
+    sendMessage("you seem nice !", 2, "to")
+  }
+  else if(levelNum == 6){
+    sendMessage("you want to be friends?", 2, "to")
+  }
+  else if(levelNum == 7){
+    sendMessage("thank you for liking me!", 2, "to")
+  }
+  else if(levelNum == 8){
+    sendMessage("you love me!", 2, "to")
+  }
+  else if(levelNum == 9){
+    sendMessage("you're my best friend!", 2, "to")
+  }
+  else if(levelNum == 10){
+    sendMessage("everybody loves me !!", 2, "to")
+  }
+  //if((numLikes % LIKES_TO_LVLUP) == 0 && levelNum != 1){ //if leveled up
+    //sendMessage("good job :)",2,"to")
+  //}
+
   if(levelNum >= MAX_LEVEL){
   	  likesToNextLvl = " "
       levelNum = MAX_LEVEL
@@ -63,9 +101,18 @@ function liked(){
   });
 }
 
-function sendMessage(msg, level){ //level 1 is top text, level 2 is bottom text
+//msg - Message sent to text box
+//level - If text is sent on the top text box (1) or bottom (2)
+//sender - "from" if it is from friend, "to" if it is to friend
+function sendMessage(msg, level, sender = "from"){
 	var p = document.getElementById("p" + level)
-	p.textContent = "> " + msg;
+  if(sender == "to"){
+	   p.textContent = msg + " <"
+     p.style["text-align"] = "right"
+   } else if(sender == "from") {
+     p.textContent = "> " + msg
+     p.style["text-align"] = "left"
+   }
 }
 
 function newComment(event){
