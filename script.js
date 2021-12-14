@@ -15,7 +15,8 @@ function liked(){
   numLikes++;
   var levelNum = Math.floor(numLikes / LIKES_TO_LVLUP) + 1
   var likesToNextLvl = "(" + numLikes % LIKES_TO_LVLUP + "/" + LIKES_TO_LVLUP + ")"
-  // messages per level up:
+  if((numLikes % LIKES_TO_LVLUP) == 0 && levelNum != 1){ //if leveled up
+  	// messages per level up:
   if(levelNum == 1){
     sendMessage("no one likes me...", 2, "to")
   }
@@ -49,9 +50,7 @@ function liked(){
   else if(levelNum == 10){
     sendMessage("everybody loves me !!", 2, "to")
   }
-  //if((numLikes % LIKES_TO_LVLUP) == 0 && levelNum != 1){ //if leveled up
-    //sendMessage("good job :)",2,"to")
-  //}
+  }
 
   if(levelNum >= MAX_LEVEL){
   	  likesToNextLvl = " "
