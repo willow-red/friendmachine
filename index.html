@@ -10,10 +10,25 @@
 </head>
 <body>
   <div id="game">
+    <div id = "about" style = "display:none">
+      <input type="image" src="assets/restart1.png"
+       onmouseover="this.src='assets/restart2.png'"
+       onmouseout="this.src='assets/restart1.png'"
+       id = "exit">
+      <p style="margin-top: 80px; margin-left: 8px;">
+        <span> <b><i>Friend Machine</i>,</b> 2021 </span> <br>
+        <span> Code in IDE </span> <br> <br>
+        <span> Have your very own friend right inside your screen! Give it love and it will love you back.<br>
+        You can be best friends forever.<br><br>Co-created by Namesnipes and WillowRed</span>
+    </div>
     <input type="image" src="assets/restart1.png"
      onmouseover="this.src='assets/restart2.png'"
      onmouseout="this.src='assets/restart1.png'"
      id = "restart">
+    <input type="image" src="assets/aboutButton1.png"
+      onmouseover="this.src='assets/aboutButton2.png'"
+      onmouseout="this.src='assets/aboutButton1.png'"
+      id = "aboutBtn">
     <img id = "face" src="assets/level1.png">
 	  <img id = "border" src="assets/border.png">
     <div id ="message">
@@ -33,12 +48,6 @@
     onmousedown="this.src='assets/likebutton2.png'"
     onmouseup="this.src='assets/likebutton1.png'">
   </div>
-  <!--<div id = "about" style="line-height:150%">
-    <p>
-      <b><span style="font-size: 25px; font-family: Helvetica, sans-serif;"> Sara Alvarado </span></b> <br>
-      <span style="font-size: 18px; font-family: Helvetica, sans-serif;"> <b><i>Friend Machine</i>,</b> 2021 </span> <br>
-      <span style = "font-size: 18px; font-family: Verdana, sans-serif;"> Code in IDE </span> <br> <br>
-      <span style = "font-family: Verdana, sans-serif;"> This website provides a social commentary on the fundemental design problems of social media. </span>-->
 </body>
 <script src="script.js"></script>
 
