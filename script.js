@@ -1,7 +1,9 @@
 var heart = document.getElementById("heart");
 var message = document.getElementById("message");
-var facePic = document.getElementById("face")
-var restartButton = document.getElementById("restart")
+var facePic = document.getElementById("face");
+var restartButton = document.getElementById("restart");
+var exitButton = document.getElementById("exit");
+var about = document.getElementById("about");
 
 var heart1 = document.getElementById("heartSpam1");
 var heart2 = document.getElementById("heartSpam2");
@@ -15,9 +17,11 @@ function liked(){
   numLikes++;
   var levelNum = Math.floor(numLikes / LIKES_TO_LVLUP) + 1
   var likesToNextLvl = "(" + numLikes % LIKES_TO_LVLUP + "/" + LIKES_TO_LVLUP + ")"
-  if((numLikes % LIKES_TO_LVLUP) == 0 && levelNum != 1){ //if leveled up
-  	// messages per level up:
-  if(levelNum == 2){
+  // messages per level up:
+  if(levelNum == 1){
+    sendMessage("no one likes me...", 2, "to")
+  }
+  else if(levelNum == 2){
     sendMessage("oh?", 2, "to")
   }
   else if(levelNum == 3){
@@ -47,7 +51,9 @@ function liked(){
   else if(levelNum == 10){
     sendMessage("everybody loves me !!", 2, "to")
   }
-  }
+  //if((numLikes % LIKES_TO_LVLUP) == 0 && levelNum != 1){ //if leveled up
+    //sendMessage("good job :)",2,"to")
+  //}
 
   if(levelNum >= MAX_LEVEL){
   	  likesToNextLvl = " "
@@ -123,11 +129,16 @@ function onRestart(event){
 	location.reload()
 }
 
-//on start stuff
-sendMessage("no one likes me...", 2, "to")
+function popUp(){
+  about.style.display = "none";
+}
 
+function openPopUp(){
+  about.style.display = "block";
+}
 //events!!
-
+exitButton.addEventListener("click",popUp)
+document.getElementById("aboutBtn").addEventListener("click",openPopUp)
 restartButton.addEventListener("click",onRestart)
 message.addEventListener("keydown",newComment)
 document.getElementById("btn").addEventListener("click", liked)
